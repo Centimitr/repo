@@ -1,0 +1,34 @@
+.UIButton{
+	display: block;
+	margin: 12px;
+	border-radius: 22px;
+	width: 298px;
+	height: 44px;
+	line-height: 42px;
+	font-size:14px;
+	text-align:center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border: 2px solid transparent; 
+}
+.UIButton:hover{
+	border: 2px solid rgb(74,137,32);
+}
+.UIButton.primary{
+	background: #72b148;
+	color:#ffffff;
+}
+.UIButton.second{
+	background: #20a0e9;
+	color:#ffffff;
+}
+.UIButton.tertiary{
+	border:1px solid #20a0e9;
+	background: transparent;
+	color:#20a0e9;
+}
+.UIButton.icon{
+	background:#20a0e9;
+	border-radius:22px;
+	width:44px;
+}

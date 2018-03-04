@@ -1,0 +1,25 @@
+.UIUserImage{
+	margin: 12px;
+	display: block;
+	height: 44px;
+	width: 44px;
+	border-radius: 22px;
+	border-width: 1px;
+	border-style: solid;
+	/*color: #333;*/
+	font-weight: 300;
+	text-align: center;
+	line-height: 40px;
+	font-size: 24px;
+	cursor: default;
+}
+.UIUserImage::selection{
+	background-color: transparent;
+}
+.UIUserImage.small{
+	font-size: 19px;
+}
+img.UIUserImage{
+	border-radius: 22px;
+	border: none;
+}

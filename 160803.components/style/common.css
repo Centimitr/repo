@@ -1,0 +1,49 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+    font-family: "Open Sans","Helvetica Neue","Lucida Grande","Segoe UI",Ubuntu,"Droid Sans",sans-serif
+}
+
+li{
+    list-style: none;
+}
+
+input
+{
+    border: 1px solid #aaa;
+    outline: none;
+}
+
+button{
+    background: none;
+    border: none;
+    font-size: 17px;
+    color: royalblue;
+}
+button:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
+button:focus{
+    outline: none;
+}
+
+article{
+    padding: 66px;
+    max-width: 946px;
+}
+article h1{
+    font-size: 36px;
+    line-height: 44px;
+    margin-top: 11px;
+    margin-bottom: 33px;
+    font-weight: 400;
+}
+article p{
+    font-size: 14px;
+    margin-bottom: 22px;
+    font-weight: 300;
+    letter-spacing: 0.25px;
+    line-height: 22px;
+}

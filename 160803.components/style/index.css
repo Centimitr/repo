@@ -1,0 +1,25 @@
+body{
+	background-color: #f3f3f3;
+}
+.showcase{
+	width: 65%;
+	margin: 65px auto;
+	padding: 36px 48px;
+	border-radius: 10px;
+	border: 1px solid #ddd;
+	background-color: #ffffff;
+}
+.showcase header h2{
+	font-size: 36px;
+	font-family: "Optima";
+}
+.showcase .component{
+	padding: 18px 0;
+	/*border-bottom: 1px dotted #ccc;*/
+}
+.showcase .component h3{
+	color: #333;
+	font-family: "Andale Mono";
+	font-size: 20px;
+	margin-bottom: 20px;
+}

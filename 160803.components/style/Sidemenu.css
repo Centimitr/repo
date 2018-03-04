@@ -1,0 +1,66 @@
+.UISidemenu{
+	/*position: fixed;*/
+	/*When needing a parent container*/
+/*	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;*/
+	position: relative;
+	width: 66px;
+	height: 100%;
+	background:#3f3f3f;
+	color: #f3f3f3;
+	overflow: hidden;
+}
+.UISidemenu.flat{
+	width: 288px;
+}
+
+.UISidemenu .logo, .UISidemenu .menu, .UISidemenu .user{
+	position: absolute;
+}
+.UISidemenu .menu li, .UISidemenu .user{
+	height: 66px;
+	width: 288px;
+}
+
+.UISidemenu .logo{
+	height: 66px;
+	width: inherit;
+	top: 0;
+	left: 0;
+	text-align: center;
+	line-height: 66px;
+}
+.UISidemenu .menu{
+	top: 66px;
+	left: 0;
+}
+.UISidemenu .user{
+	bottom: 0;
+	left: 0;
+}
+
+.UISidemenu .menu li button{
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+.UISidemenu .menu li button i{
+	position: absolute;
+	top: 0;left: 0;bottom: 0;
+	width: 66px;
+	height: 100%;
+}
+.UISidemenu .menu li button span{
+	position: absolute;
+	top: 0;left: 0;bottom: 0;
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	padding-left: 66px;
+	font-size: 16px;
+	text-align: left;
+	color: white;
+}
