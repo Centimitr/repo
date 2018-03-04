@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1327405005 cip-homework-4</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.read = function () {
+            let input = document.querySelector('input');
+            if (input.value.match(/^[\u4E00-\u9FA5\uF900-\uFA2D]*$/)){
+                Promise.all(input.value.split('').map(char => window.fetch('http://localhost:3000/pron/?char=' + char)
+                    .then(res => res.blob()), err => alert(err))
+                ).then(blobs => {
+                    let play = () => {
+                        let blob = blobs.shift();
+                        if (blob){
+                            let src = URL.createObjectURL(blob);
+                            let a = new Audio(src);
+                            a.playbackRate = 1.6;
+                            a.play();
+                            a.addEventListener('ended', play);
+                        }
+                    };
+                    play();
+                }, err => alert(err));
+            }else{
+                alert('请输入中文字符！');
+                input.value = null;
+            }
+        };
+    </script>
+</head>
+<body>
+<article>
+    <header>
+        <h1>CIP Homework 4</h1>
+        <h2>文本语音合成</h2>
+    </header>
+    <section>
+        <label>
+            请输入要朗读的中文：
+            <input type="text">
+            <button onclick="read()">朗读</button>
+        </label>
+    </section>
+    <footer>
+        by 1327405005, 2016/11
+    </footer>
+</article>
+</body>
+</html>
