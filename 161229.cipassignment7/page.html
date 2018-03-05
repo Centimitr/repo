@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1327405005 cip-homework-4</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="http://cdn.bootcss.com/angular.js/1.6.0/angular.js"></script>
+    <script>
+        app = angular.module('app', [])
+            .controller('ctrl', function ($scope) {
+                $scope.wd = '';
+                $scope.indexResult = [];
+                $scope.delay = null;
+                $scope.getIndexResult = function (wd) {
+                    let t = Date.now()
+                    window.fetch('http://localhost:3000/index/?wd=' + wd)
+                        .then(data => data.text())
+                        .then(text => text.slice(4, -1))
+                        .then(text => text.split(' '))
+                        .then(freqStrArr => freqStrArr.map(s => ({id: s.split(':')[0], freq: +s.split(':')[1]})))
+                        .then(freqs => freqs.sort((a, b) => b.freq - a.freq))
+                        .then(freqs => freqs.slice(0, 10))
+                        .then(v => $scope.$evalAsync(() => {
+                            $scope.indexResult = v;
+                            $scope.delay = Date.now() - t;
+                        }));
+                };
+                $scope.page = {
+                    id: '',
+                    content: ''
+                };
+                $scope.getPageContent = function (id) {
+                    window.fetch('http://localhost:3000/page/?id=' + id)
+                        .then(data => data.text())
+                        .then(text => $scope.$evalAsync(() => $scope.page = {id, content: text}));
+                }
+            });
+
+    </script>
+</head>
+<body ng-app="app">
+<article ng-controller="ctrl">
+    <header>
+        <h1>CIP Homework 7</h1>
+        <h2>倒排索引</h2>
+    </header>
+    <section>
+        <label>
+            查询关键字：
+            <input type="text" ng-model="wd">
+            <button ng-click="getIndexResult(wd)">查询</button>
+            <span ng-show="delay">{{delay}} ms</span>
+        </label>
+    </section>
+    <section>
+        <div ng-repeat="r in indexResult" style="padding: 4px;cursor: pointer;" ng-click="getPageContent(r.id)">
+            <span style="display:inline-block; width: 200px;font-size: 16px">id: {{r.id}}</span>
+            <span>freq: {{r.freq}}</span>
+        </div>
+    </section>
+    <br>
+    <section ng-show="page.content!==''">
+        <header style="font-size: 17px">Page {{page.id}}</header>
+        <p>
+            {{page.content}}
+        </p>
+    </section>
+    <footer>
+        by 1327405005, 2016/12
+    </footer>
+</article>
+</body>
+</html>
