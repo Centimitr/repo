@@ -1,0 +1,169 @@
+<html>
+<head>
+    <script src="_angular.js"></script>
+    <style>
+        body {
+            background-color: white;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+            cursor: default;
+            font-family: "Hiragino Sans", sans-serif;
+        }
+
+        header.header {
+            -webkit-app-region: drag;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 280px;
+            display: flex;
+            flex-flow: column nowrap;
+            background-color: rgba(0, 0, 15, 0.9);
+            border-bottom: 8px solid rgba(94, 200, 255, 0.9);
+        }
+
+        .header h1 {
+            font-weight: 100;
+            color: #5ec8ff;
+            position: absolute;
+            left: 10%;
+            bottom: 25%;
+            font-size: 38px;
+        }
+
+        section.main {
+            position: fixed;
+            top: 280px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        .toolbar {
+            margin: 2% 10%;
+            align-items: center;
+        }
+
+        .list {
+            position: absolute;
+            top: 64px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            overflow: auto;
+            padding: 0 8%;
+        }
+
+        .x-box {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .right {
+            flex: 1;
+            justify-content: flex-end;
+        }
+
+        .tag * {
+            margin-right: 12px;
+        }
+
+        button {
+            padding: 8px 9px;
+        }
+
+        .tasks {
+            display: flex;
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+<body ng-app="app" ng-controller="appCtrl">
+<header class="header">
+    <h1>Manga Downloader</h1>
+</header>
+<section class="main">
+    <section class="toolbar x-box">
+        <div class="x-box tag">
+            <div>Fetching</div>
+            <div>Saved</div>
+        </div>
+        <div class="x-box right">
+            <button ng-click="add()">New Series</button>
+        </div>
+    </section>
+    <section class="list">
+        <div class="tasks" ng-repeat="task in tasks">
+            <div style="width: 38px">{{task.isCompleted()? 'ok':''}}</div>
+            <div style="width: 35%;">{{task.name}}</div>
+            <div>{{task.completedNum}}/{{task.total}}</div>
+        </div>
+    </section>
+</section>
+<script>
+    const contents = require('electron').remote.getCurrentWindow().webContents;
+    const clipboard = require('electron').clipboard;
+    contents.openDevTools();
+    const {getSeriesBookTasks} = require('./tasks');
+    const Maid = require('./maid');
+    const args = require('./args');
+
+    //    (async () => {
+    //        await args.wait();
+    //        const m = new Maid({port: args.port});
+    //        const tasks = await getSeriesBookTasks('http://www.1kkk.com/manhua22709/');
+    //        tasks.forEach(t => m.add(t));
+    //        m.start();
+    //    })();
+    let m;
+
+    (async () => {
+        await args.wait();
+        m = new Maid({port: args.port});
+        console.log('ok!');
+    })();
+
+    angular
+        .module('app', [])
+        .controller('appCtrl', function ($scope) {
+            $scope.tasks = [];
+            $scope.add = function () {
+                console.log(m);
+                if (m) {
+                    (async () => {
+                        let url = clipboard.readText();
+                        console.log(url);
+                        if (!url.startsWith('http')) {
+                            console.warn('url not start with http:', url);
+//                            return;
+                        }
+//                        const url = 'http://www.1kkk.com/manhua34953/';
+//                        const tasks = await getSeriesBookTasks('http://www.1kkk.com/manhua22709/');
+//                        console.log(url);
+                        url = 'http://www.1kkk.com/manhua18417/';
+                        const tasks = await getSeriesBookTasks(url);
+                        console.log(tasks);
+                        tasks.forEach(t => m.add(t));
+                        m.start();
+                        $scope.tasks = m.get();
+                        setInterval(function () {
+                            $scope.$apply();
+                        }, 500);
+                    })();
+                }
+            };
+            console.log($scope.tasks);
+        });
+</script>
+</body>
+</html>

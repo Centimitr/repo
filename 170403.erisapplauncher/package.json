@@ -1,0 +1,59 @@
+{
+  "name": "Eris",
+  "version": "0.2.2",
+  "description": "best manga reader, comic viewer for macOS.",
+  "main": "shelf.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "node build.js",
+    "collect": "node collect.js"
+  },
+  "keywords": [],
+  "author": "Centimitr",
+  "devDependencies": {
+    "electron-builder": "^17.0.1"
+  },
+  "build": {
+    "appId": "com.devbycm.eris",
+    "productName": "Eris",
+    "buildVersion": "201",
+    "mac": {
+      "category": "your.app.category.type",
+      "target": "dmg"
+    },
+    "compression": "store",
+    "asarUnpack": [
+      "Eris Support"
+    ],
+    "fileAssociations": [
+      {
+        "ext": "webp"
+      },
+      {
+        "ext": "jpg"
+      },
+      {
+        "ext": "jpeg"
+      },
+      {
+        "ext": "png"
+      },
+      {
+        "ext": "rar"
+      },
+      {
+        "ext": "zip"
+      },
+      {
+        "ext": "eris",
+        "name": "Eris Manga File",
+        "icon": "icon.icns",
+        "role": "Viewer"
+      }
+    ]
+  },
+  "dependencies": {
+    "fs-extra-promise": "^1.0.1",
+    "nightmare": "^2.10.0"
+  }
+}
