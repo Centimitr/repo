@@ -1,0 +1,12 @@
+* {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-drag: none;
+    cursor: default;
+    font-size: 14px;
+    font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;;
+}
