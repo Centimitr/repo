@@ -1,0 +1,14 @@
+<article class="check-page" [class.active]="show">
+  <div class="skip" (click)="deactivate()"><a>SKIP</a></div>
+  <header>
+    <h3>Before Asleep</h3>
+    <a class="check" (click)="next()">Start checking today's plan.</a>
+  </header>
+  <section class="summary block">
+    <div class="tasks">
+      <div class="task" *ngFor="let t of check.tasks">{{t}}</div>
+    </div>
+    <!--<div class="stat">{{check.tasks.length}} tasks in total</div>-->
+  </section>
+  <div class="instruction">You can touch screen and say 'Start' now.</div>
+</article>

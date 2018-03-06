@@ -1,0 +1,105 @@
+// http://ionicframework.com/docs/theming/
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+#background-layer {
+  //background-color: black;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#content-layer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  page-check {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+a {
+  cursor: pointer;
+  color: rgb(50, 131, 247);
+}
+
+page-check {
+  pointer-events: none;
+  z-index: 1;
+}
+
+section.home {
+  z-index: 900;
+  .home-header {
+    padding-top: 6vh;
+    .title {
+      font-weight: bold;
+      font-size: 32px;
+      margin: 4vw 8vw 0;
+    }
+    .status {
+      margin: 0 8vw;
+      font-size: 30px;
+      padding-left: 2px;
+      color: rgb(91, 151, 247);
+    }
+  }
+  .stat {
+
+    .diagram {
+      margin: 4vw;
+      border: 1px solid #eee;
+      height: 58vw;
+      width: 92vw;
+    }
+  }
+}
+
+.list {
+  margin: 4vw 4vw;
+  .item {
+    display: flex;
+    flex-flow: row;
+    font-size: 20px;
+    line-height: 48px;
+    &:active {
+      background-color: #ddd;
+    }
+    .item-icon {
+      padding: 0 28px 0 4vw;
+      position: relative;
+      top: 2px;
+      z-index: 0;
+    }
+    .item-content {
+      width: 100%;
+      border-bottom: 1px solid #eee;
+    }
+    &:last-child {
+      .item-content {
+        border-bottom: none;
+      }
+    }
+  }
+}
