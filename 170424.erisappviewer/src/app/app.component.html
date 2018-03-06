@@ -1,0 +1,3 @@
+<reader [path]="path" [refresh]="refresh" (ok)="onOk()" (fail)="open($event)"></reader>
+<header class="titlebar" (dblclick)="zoom()" (contextmenu)="onContextMenu($event, titleBar)" #titleBar>{{getTitle()}}</header>
+<cover-layer></cover-layer>

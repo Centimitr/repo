@@ -1,0 +1,54 @@
+* {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-user-drag: none;
+  font-family: "Sukhumvit Set", "PingFang SC", sans-serif;
+  cursor: default;
+}
+
+a {
+  color: rgb(3, 102, 214);
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+body {
+  transition: 375ms;
+}
+
+/*body.bg-tran-d-l {*/
+/*background-color: #dedede;*/
+/*animation: bg-tran 375ms;*/
+/*}*/
+/**/
+/*@keyframes bg-tran {*/
+/*0% {*/
+/*opacity: 0;*/
+/*}*/
+/*62% {*/
+/*opacity: 1;*/
+/*}*/
+/*100% {*/
+/*opacity: 0*/
+/*}*/
+/*}*/
+
+canvas {
+  /*animation: canvas-enter 75ms ease-in;*/
+}
+
+@keyframes canvas-enter {
+  from {
+    opacity: .8
+  }
+  to {
+    opacity: 1
+  }
+}

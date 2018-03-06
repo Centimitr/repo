@@ -1,0 +1,52 @@
+:host {
+  position: relative;
+}
+
+.title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #444;
+}
+
+.reset {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+}
+
+.main {
+  margin-top: 12px;
+  padding: 16px 0 8px 0;
+  border-top: 1px solid #cccccc;
+  display: flex;
+  justify-content: center;
+}
+
+table{
+  display: inline-table;
+}
+
+input[type="text"] {
+  width: 180px;
+  border: 1px solid #cccccc;
+  height: 28px;
+  padding: 0 12px;
+  font-size: 14px;
+}
+
+
+input[type="checkbox"] {
+  margin-right: 12px;
+}
+
+.name, .value {
+  line-height: 38px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.name {
+  padding: 0 12px;
+}
+
