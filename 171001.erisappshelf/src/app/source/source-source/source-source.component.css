@@ -1,0 +1,149 @@
+/*box*/
+.box {
+  display: flex;
+  flex-flow: row nowrap;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.box .left {
+  min-width: 180px;
+  flex: 0;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.box .left .option {
+  height: 38px;
+  line-height: 38px;
+  width: 100%;
+  padding: 0 18px;
+}
+
+.box .left .option.selected {
+  color: white;
+  background-color: rgba(70, 117, 246, .85);
+}
+
+.box .right {
+  overflow-y: scroll;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, .65);
+}
+
+/*list*/
+.title {
+  position: sticky;
+  top: 0;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, .35);
+}
+
+/*::-webkit-scrollbar-thumb:window-inactive {*/
+/*background: rgba(255, 0, 0, 0.4);*/
+/*}*/
+
+.list-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.list {
+  flex: 1;
+  display: inline-flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  padding: 16px 8px;
+}
+
+.list .item {
+  position: relative;
+  width: 255px;
+  height: 132px;
+  /* padding: 14px; */
+  margin: 6px 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px 0 rgba(33, 33, 33, 0.3);
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.list .item:hover {
+}
+
+.list .item:hover * {
+}
+
+.item img {
+  height: 121px;
+  width: 95px;
+  object-fit: contain;
+  position: absolute;
+  bottom: 0;
+  left: 12px;
+  border: 1px solid white;
+  box-shadow: 0 0 2px 0 rgba(33, 33, 33, 0.3);
+  border-bottom: 0;
+  border-radius: 8px 8px 0 0;
+}
+
+.item .info {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 100px;
+  bottom: 0;
+  padding: 20px 8px 8px 20px;
+}
+
+.item .info *:hover, .item img:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.item .info .name {
+  font-size: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 6px;
+}
+
+.item .info .note {
+  color: #888;
+  font-size: 12px;
+}
+
+.item .info .detail {
+  position: absolute;
+  bottom: 16px;
+  font-size: 14px;
+}
+
+/*.item .info .button {*/
+/*display: none;*/
+/*font-size: 12px;*/
+/*padding: 0 12px;*/
+/*height: 24px;*/
+/*line-height: 24px;*/
+/*color: white;*/
+/*background-color: rgb(70, 117, 246);*/
+/*border-radius: 16px;*/
+/*position: absolute;*/
+/*bottom: 16px;*/
+/*opacity: .85;*/
+/*}*/

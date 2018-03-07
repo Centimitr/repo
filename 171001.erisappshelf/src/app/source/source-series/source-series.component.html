@@ -1,0 +1,19 @@
+<div class="box">
+  <div class="left">
+    <div class="back" (click)="exit.emit()">Back</div>
+    <div class="img"><img src="{{series.image}}" alt=""></div>
+    <div class="info">
+      <div class="name">{{series.name}}</div>
+    </div>
+  </div>
+  <article class="right">
+    <section class="books">
+      <div class="note" *ngIf="!!series.loading()">loading...</div>
+      <div class="note" *ngIf="!series.loading()&&!series.books.length">No available manga book found!</div>
+      <div class="book" *ngFor="let b of series.books">
+        <div class="name">{{b?.name}}</div>
+        <a class="button" (click)="download(b)">Download</a>
+      </div>
+    </section>
+  </article>
+</div>
