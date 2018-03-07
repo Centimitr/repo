@@ -1,0 +1,33 @@
+{
+  "name": "Downloads",
+  "description": "simple download manager",
+  "version": "0.1.0",
+  "author": "Centimitr",
+  "main": "./app/app.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "go run ./collect.go build",
+    "=> main": "go run ./collect.go main",
+    "=> new": "go run ./collect.go new",
+    "aria": "aria2c --enable-rpc --rpc-listen-all=true --rpc-allow-origin-all --rpc-allow-origin-all=true --enable-dht=true --follow-torrent=mem"
+  },
+  "build": {
+    "appId": "com.devbycm.kitsune",
+    "compression": "store",
+    "mac": {
+      "category": "web",
+      "target": "dir",
+      "type": "development"
+    },
+    "asarUnpack": [
+      "usertaskd"
+    ]
+  },
+  "devDependencies": {
+    "electron": "beta",
+    "electron-builder": "^19.22.1"
+  },
+  "dependencies": {
+    "aria2": "^3.0.0"
+  }
+}
