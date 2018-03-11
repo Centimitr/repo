@@ -1,0 +1,39 @@
+:host {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  color: white;
+  font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+#layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+}
+
+#layer.active {
+  opacity: 1;
+}
+
+article {
+  padding-top: 20px;
+}
+
+h1 {
+  padding: 28px 80px;
+  font-size: 64px;
+  font-weight: bold;
+}
+
+.box {
+  padding: 0 80px;
+  height: 48px;
+  line-height: 48px;
+  font-size: 28px;
+}
