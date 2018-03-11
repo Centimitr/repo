@@ -1,0 +1,86 @@
+//.container {
+//  height: 100%;
+//  display: flex;
+//  align-items: center;
+//  justify-content: center;
+//
+//  background: url(../../../assets/background.jpg) no-repeat center fixed;
+//  -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+//  background-size: cover; /* version standardisée */
+//
+//  .title {
+//    color: white;
+//    margin:0;
+//    padding:50px 20px;
+//  }
+//
+//}
+.container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  //background-color: rgba(0, 0, 0, .8);
+  //backdrop-filter: blur(2px);
+  display: flex;
+}
+
+.titlebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  -webkit-app-region: drag;
+  height: 28px;
+  //height: 38px;
+  //background-color: black;
+  //border-radius: 5px 5px 0 0;
+}
+
+.main {
+  min-width: 265px;
+  width: 325px;
+  height: 100%;
+  border-right: 1px solid #cccccc;
+  overflow-y: auto;
+
+  .heading {
+    position: sticky;
+    top: 18px;
+    font-size: 12px;
+    color: #666666;
+    margin-top: 18px;
+    margin-bottom: 12px;
+    padding: 0 24px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    user-select: none;
+    cursor: default;
+  }
+  .resource {
+    position: sticky;
+    top: 50px;
+    background-color: #f9f9f9;
+    margin: 16px;
+    padding: 16px;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    box-shadow: 0 3px 16px 1px rgba(0, 0, 0, 0.1);
+    user-select: none;
+    cursor: default;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    .id {
+      font-size: 12px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .attributes {
+      font-size: 12px;
+    }
+  }
+}
+
+.detail {
+  height: 100%;
+}

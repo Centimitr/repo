@@ -1,0 +1,25 @@
+<div class="resourceId">{{resource.id}}</div>
+<div [ngSwitch]="resource.type">
+    <div *ngSwitchCase="0">
+        <div class="type">Item</div>
+        <div class="content">
+            <div class="align">
+                <button (mousedown)="refreshItemEntries().then()">Refresh</button>
+            </div>
+            <div class="keys">
+                <a class="key" *ngFor="let entry of itemEntries" (mousedown)="selectItem(entry)">{{entry}}</a>
+            </div>
+        </div>
+    </div>
+    <div *ngSwitchCase="1">
+        <div class="type">Collection</div>
+    </div>
+    <div *ngSwitchCase="2">
+        <div class="type">CollectionList</div>
+        <div class="content">
+            <div class="align">
+                <button (mousedown)="updateCollectionList()">Run</button>
+            </div>
+        </div>
+    </div>
+</div>

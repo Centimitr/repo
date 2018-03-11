@@ -1,0 +1,13 @@
+<div class="container">
+    <!--<div class="titlebar"></div>-->
+    <div class="main">
+        <div class="heading">Resources</div>
+        <div class="resource" *ngFor="let r of resources" (mousedown)="select(r)">
+            <div class="id"> {{r.id}}</div>
+            <div class="attributes"> {{r|json}}</div>
+        </div>
+    </div>
+    <div class="detail">
+        <app-detail *ngFor="let r of resources" [hidden]="selectedResourceId!=r.id" [resource]="r"></app-detail>
+    </div>
+</div>
